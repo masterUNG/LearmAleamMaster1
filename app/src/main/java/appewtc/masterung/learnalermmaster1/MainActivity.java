@@ -1,6 +1,10 @@
 package appewtc.masterung.learnalermmaster1;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.app.TimePickerDialog;
+import android.content.Context;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -80,6 +84,12 @@ public class MainActivity extends AppCompatActivity {
 
         //Show Alarm
         showTimeTextView.setText("Time = " + setCalendar.getTime());
+
+        //Intent
+        Intent objIntent = new Intent(getBaseContext(), AlarmReceiver.class);
+        PendingIntent objPendingIntent = PendingIntent.getBroadcast(getBaseContext(), RQS_1, objIntent, 0);
+        AlarmManager objAlarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+        objAlarmManager.set(AlarmManager.RTC_WAKEUP, setCalendar.getTimeInMillis(), objPendingIntent);
 
     }   // setAlarm
 
