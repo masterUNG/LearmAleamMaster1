@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
     private Button clickButton;
     private TextView showTimeTextView;
     private TimePickerDialog objTimePickerDialog;
-    private static final int RQS_1 = 1;
+    private static final int RQS_1 = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
